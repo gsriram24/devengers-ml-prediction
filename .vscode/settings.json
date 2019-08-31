@@ -2,6 +2,6 @@
     "appService.zipIgnorePattern": [
         ".vscode{,/**}"
     ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/72826662-352a-4d5d-ac63-cb974df16cf4/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/putitinrice",
+    "appService.defaultWebAppToDeploy": "None",
     "appService.deploySubpath": ""
 }
