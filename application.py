@@ -66,7 +66,7 @@ def preprocess_and_cleanup(df, mode=0):
     return df
 
 
-Model Training
+# Model Training
 full_train_df = pd.read_csv('./devengers_train.csv')
 full_test_df = pd.read_csv('./devengers_test.csv')
 
