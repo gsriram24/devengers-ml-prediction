@@ -66,19 +66,19 @@ def preprocess_and_cleanup(df, mode=0):
     return df
 
 
-# Model Training
-# full_train_df = pd.read_csv('./devengers_train.csv')
-# full_test_df = pd.read_csv('./devengers_test.csv')
+Model Training
+full_train_df = pd.read_csv('./devengers_train.csv')
+full_test_df = pd.read_csv('./devengers_test.csv')
 
-# train_df = preprocess_and_cleanup(full_train_df, 0)
-# test_df = preprocess_and_cleanup(full_test_df, 1)
+train_df = preprocess_and_cleanup(full_train_df, 0)
+test_df = preprocess_and_cleanup(full_test_df, 1)
 
-# train_df, test_df = train_df.align(test_df, join='outer', axis=1, fill_value=0)
-# train_df = train_df.reindex(columns=(sorted(list([a for a in train_df.columns if a != 'treatment'])) + ['treatment']))
+train_df, test_df = train_df.align(test_df, join='outer', axis=1, fill_value=0)
+train_df = train_df.reindex(columns=(sorted(list([a for a in train_df.columns if a != 'treatment'])) + ['treatment']))
 
-# data_x, data_y = train_df.iloc[:, :-1], train_df.iloc[:, -1]
-# best_classifier = AdaBoostClassifier(learning_rate=0.01333521432163324, n_estimators=500)
-# best_classifier.fit(data_x, data_y)
+data_x, data_y = train_df.iloc[:, :-1], train_df.iloc[:, -1]
+best_classifier = AdaBoostClassifier(learning_rate=0.01333521432163324, n_estimators=500)
+best_classifier.fit(data_x, data_y)
 
 
 @app.route('/predict', methods=['POST'])
@@ -117,19 +117,5 @@ def api_id1():
         results.append(getData(file_directory))
     return jsonify(results)
 
-
-# Model Training
-full_train_df = pd.read_csv('./data/devengers_train.csv')
-full_test_df = pd.read_csv('./data/devengers_test.csv')
-
-train_df = preprocess_and_cleanup(full_train_df, 0)
-test_df = preprocess_and_cleanup(full_test_df, 1)
-
-train_df, test_df = train_df.align(test_df, join='outer', axis=1, fill_value=0)
-train_df = train_df.reindex(columns=(sorted(list([a for a in train_df.columns if a != 'treatment'])) + ['treatment']))
-
-data_x, data_y = train_df.iloc[:, :-1], train_df.iloc[:, -1]
-best_classifier = AdaBoostClassifier(learning_rate=0.01333521432163324, n_estimators=500)
-best_classifier.fit(data_x, data_y)
 
 app.run(port=80)
