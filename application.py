@@ -121,8 +121,8 @@ def api_id1():
 train_df = None
 if __name__ == '__main__':
     # Model Training
-    full_train_df = pd.read_csv('.data/devengers_train.csv')
-    full_test_df = pd.read_csv('.data/devengers_test.csv')
+    full_train_df = pd.read_csv('./data/devengers_train.csv')
+    full_test_df = pd.read_csv('./data/devengers_test.csv')
 
     train_df = preprocess_and_cleanup(full_train_df, 0)
     test_df = preprocess_and_cleanup(full_test_df, 1)
