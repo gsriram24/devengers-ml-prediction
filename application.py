@@ -69,7 +69,6 @@ def preprocess_and_cleanup(df, mode=0):
 # Model Training
 full_train_df = pd.read_csv('./data/devengers_train.csv')
 full_test_df = pd.read_csv('./data/devengers_test.csv')
-
 train_df = preprocess_and_cleanup(full_train_df, 0)
 test_df = preprocess_and_cleanup(full_test_df, 1)
 
@@ -83,7 +82,7 @@ best_classifier.fit(data_x, data_y)
 
 @app.route('/predict', methods=['POST'])
 def predict_y():
-    global train_df
+    # global train_df
 
     pandas_dict = {}
     for key in request.json:
@@ -118,4 +117,6 @@ def api_id1():
     return jsonify(results)
 
 
-app.run(port=80)
+if __name__ == '__main__':
+
+    app.run(port=80)
