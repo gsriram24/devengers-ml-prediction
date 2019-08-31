@@ -82,7 +82,7 @@ best_classifier.fit(data_x, data_y)
 
 @app.route('/predict', methods=['POST'])
 def predict_y():
-    # global train_df
+    global train_df
 
     pandas_dict = {}
     for key in request.json:
